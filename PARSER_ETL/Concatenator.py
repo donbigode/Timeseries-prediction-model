@@ -47,7 +47,7 @@ path_Inventario_produtos_tratados = "C://Users/otavi/OneDrive/Codes/OngoingDev/P
 DB_DemandaPath = "C://Users/otavi/Codes/Parser_ETL/Tbl_fact/produto_venda_consolidado.xlsx"
 
 
-DB_tratados = "C://Users/otavi/Codes/OngoingDev/PARSER_ETL/Consolidado/"
+DB_tratados = "C://Users/otavi/OneDrive/Codes/OngoingDev/PARSER_ETL/Consolidado/"
 
 ######################################################################################################
 ########################################  Functions  #################################################
@@ -64,9 +64,9 @@ def append_dados_venda(path):
     for base_ext in glob.glob("*.xlsx"):
         df_check = pd.read_excel(base_ext)
         df_consolidador = df_consolidador.append(df_check,ignore_index= True)
-        df_consolidador.to_excel("{0}venda_produto_consolidado_{1}.xlsx" .format(DB_tratados,now.strftime("%d/%m/%Y")))
+        
         print("Tabela Consolidada com tamanho {0}".format(len(df_consolidador)))
-
+    df_consolidador.to_excel("{0}venda_produto_consolidado_{1}.xlsx" .format(DB_tratados,now.strftime("%d%m%Y")))
     print('Finalizada a consolidação.\n')   
 
 def append_dados_movint(path):
@@ -80,9 +80,9 @@ def append_dados_movint(path):
     for base_ext in glob.glob("*.xlsx"):
         df_check = pd.read_excel(base_ext)
         df_consolidador = df_consolidador.append(df_check,ignore_index= True)
-        df_consolidador.to_excel("{0}movint_produto_consolidado_{1}.xlsx" .format(DB_tratados,now.strftime("%d/%m/%Y")))
+        
         print("Tabela Consolidada com tamanho {0}".format(len(df_consolidador)))
-    
+    df_consolidador.to_excel("{0}movint_produto_consolidado_{1}.xlsx" .format(DB_tratados,now.strftime("%d%m%Y")))
     print('Finalizada a consolidação.\n')    
 ######################################################################################################
 
@@ -114,8 +114,8 @@ def trata_dados_movit_prod(path):
 
 
 if __name__ == "__main__":
-    trata_dados_movit_prod(path_Venda_produtos)
-    trata_dados_movit_prod(path_Inventario_produtos)
+   # trata_dados_movit_prod(path_Venda_produtos)
+   # trata_dados_movit_prod(path_Inventario_produtos)
     append_dados_venda(path_Venda_produtos_tratados)
     append_dados_movint(path_Inventario_produtos_tratados)
 pass

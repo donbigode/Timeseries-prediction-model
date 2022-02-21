@@ -8,6 +8,14 @@ import glob2
 import glob
 import random
 import ntpath
+import json
+
+
+config = {"path_Venda_produtos": "path_Venda_produtos_tratados ", "path_Inventario_produtos": "path_Inventario_produtos_tratados"}
+
+with open('../paths/.json', 'w') as f:
+    json.dump(config, f)
+
 
 '''
 import multiprocessing as mp
@@ -23,10 +31,10 @@ from multiprocessing import process
 #########################################
 
 """
-###########################
-## Para Ajustar os dados ##
-## Belas artes           ##
-###########################
+##########################################
+## Para Ajustar os dados                ##
+## Belas artes - Dados Diários          ##
+##########################################
 """
 
 '''
@@ -36,7 +44,7 @@ from multiprocessing import process
 '''
 # Path leitura de arquivos
 ## Arquivos de Venda
-path_Venda_produtos = "C://Users/otavi/OneDrive/Codes/OngoingDev/Parser_ETL/venda_produtos/"
+path_Venda_produtos = "/home/otavio/Documentos/Belas Artes DadosC://Users/otavi/OneDrive/Codes/OngoingDev/Parser_ETL/venda_produtos/"
 path_Venda_produtos_tratados = "C://Users/otavi/OneDrive/Codes/OngoingDev/Parser_ETL/venda_produtos/tratados/"
 ## Arquivos de Inventário e Movimentação
 path_Inventario_produtos = "C://Users/otavi/OneDrive/Codes/OngoingDev/Parser_ETL/movimentação_produtos/"

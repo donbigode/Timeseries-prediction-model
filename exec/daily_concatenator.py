@@ -105,21 +105,41 @@ def append_dados_movint(path):
 ############## Tratamento ############################################################################
 
 
+
+#     os.chdir(path)
+#     for file in glob.glob("*.xls"):
+#         date_split = file.replace('MP-', '').replace('venda', '').replace(
+#             'produto', '').replace('movint', '').replace('_', '').replace('.xls', '')
+#         #date_split2 = file.replace('xpt_tbl_','').replace('venda','').replace('produto','').replace('movint','').replace('.xls','').replace("_","")
+#         #Inclui o split dos meses no df a ser tratado
+#         df = pd.read_excel(file)
+#         df['Data'] = date_split
+#         #df['Mês'] = date_split[0]
+#         #df['Ano'] = date_split[1]
+#         #df['Mês/Ano'] = date_split2
+#         #Criando chave ''unica'
+#         df['insertion_id'] = [random.randint(
+#             1000000, 10000000000) for k in df.index]
+#         df['Data'] = pd.to_datetime(df['Data'], format='%d/%m/%Y')
+#         df['Data_Mov'] = pd.to_datetime(df['Data_Mov'], format='%d/%m/%Y')
+#         df['Data_Mov'] = df['Data_Mov'].dt.strftime('%Y-%m-%d')
 def trata_dados_movit_prod(path):
     os.chdir(path)
     for file in glob.glob("*.xls"):
         date_split = file.replace('MP-', '').replace('venda', '').replace(
             'produto', '').replace('movint', '').replace('_', '').replace('.xls', '')
-        #date_split2 = file.replace('xpt_tbl_','').replace('venda','').replace('produto','').replace('movint','').replace('.xls','').replace("_","")
+        date_split2 = file.replace('xpt_tbl_','').replace('venda','').replace('produto','').replace('movint','').replace('.xls','').replace("_","")
         #Inclui o split dos meses no df a ser tratado
         df = pd.read_excel(file)
         df['Data'] = date_split
-        #df['Mês'] = date_split[0]
-        #df['Ano'] = date_split[1]
-        #df['Mês/Ano'] = date_split2
+        df['Mês'] = date_split[0]
+        df['Ano'] = date_split[1]
+        df['Mês/Ano'] = date_split2
         #Criando chave ''unica'
         df['insertion_id'] = [random.randint(
             1000000, 10000000000) for k in df.index]
+        df['Data'] = pd.to_datetime(df['Data'], format='%d-%m-%Y')
+    
         df.to_csv("{0}/tratados/{1}_tratado.csv" .format(path,
                   file.replace(".xls", "")))
 

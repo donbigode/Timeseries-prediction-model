@@ -8,49 +8,12 @@ import unicodedata
 class read_file():
     def __init__(self, file_name):
         self.file_name = file_name
-        self.df = pd.read_excel(self.file_name,engine='openpyxl', index_col = 0)
-        self.df.columns = [label.replace(' ', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('/', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('-', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('(', '_') for label in self.df.columns]
-        self.df.columns = [label.replace(')', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('.', '_') for label in self.df.columns]
-        self.df.columns = [label.replace(',', '_') for label in self.df.columns]
-        self.df.columns = [label.replace(';', '_') for label in self.df.columns]
-        self.df.columns = [label.replace(':', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('?', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('!', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('#', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('$', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('%', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('^', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('&', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('*', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('(', '_') for label in self.df.columns]
-        self.df.columns = [label.replace(')', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('+', '_') for label in self.df.columns]
-        self.df.columns = [label.replace('=', '_') for label in self.df.columns]
-        self.df.columns = [label.lower() for label in self.df.columns]
-        self.df.columns = [label.replace('á', 'a') for label in self.df.columns]
-        self.df.columns = [label.replace('é', 'e') for label in self.df.columns]
-        self.df.columns = [label.replace('í', 'i') for label in self.df.columns]
-        self.df.columns = [label.replace('ó', 'o') for label in self.df.columns]
-        self.df.columns = [label.replace('ú', 'u') for label in self.df.columns]
-        self.df.columns = [label.replace('ç', 'c') for label in self.df.columns]
-        self.df.columns = [label.replace('ã', 'a') for label in self.df.columns]
-        self.df.columns = [label.replace('õ', 'o') for label in self.df.columns]
-        self.df.columns = [label.replace('â', 'a') for label in self.df.columns]
-        self.df.columns = [label.replace('ê', 'e') for label in self.df.columns]
-        self.df.columns = [label.replace('ô', 'o') for label in self.df.columns]
-        self.df.columns = [label.replace('ì', 'i') for label in self.df.columns]
-        self.df.columns = [label.replace('ù', 'u') for label in self.df.columns]
-        self.df.columns = [label.replace('à', 'a') for label in self.df.columns]
-        self.df.columns = [label.replace('è', 'e') for label in self.df.columns]
-        self.df.columns = [label.replace('ì', 'i') for label in self.df.columns]
-        self.df.columns = [label.replace('ò', 'o') for label in self.df.columns]
-        self.df.columns = [label.replace('ù', 'u') for label in self.df.columns]
+        self.df = pd.read_excel(self.file_name,engine='openpyxl')
+       
+    
 
     def get_df(self):
+ 
         return self.df
 
     def get_file_name(self):

@@ -8,7 +8,7 @@ import unicodedata
 class read_file():
     def __init__(self, file_name):
         self.file_name = file_name
-        self.df = pd.read_excel(self.file_name,engine='openpyxl')
+        self.df = pd.read_excel(self.file_name,engine='openpyxl',index_col=False)
        
     
 

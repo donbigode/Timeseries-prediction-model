@@ -11,4 +11,4 @@ After a sucessfull library install, go further this order of execution:
 
 1. ETL  : Extraction and transformation of the data
 2. EDA  : Exploratory data analysis
-3 MODEL : Featured engineered datasets to be deployed in the models
+3. MODEL : Featured engineered datasets to be deployed in the models
